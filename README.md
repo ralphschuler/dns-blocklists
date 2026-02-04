@@ -2,14 +2,14 @@
 
 # The Block List Project
 
-[![GitHub issues](https://img.shields.io/github/issues/blocklistproject/lists)](https://github.com/blocklistproject/Lists/issues)
-[![GitHub closed issues](https://badgen.net/github/closed-issues/blocklistproject/Lists?color=green)](https://github.com/blocklistproject/Lists/issues?q=is%3Aissue+is%3Aclosed)
-[![GitHub contributors](https://img.shields.io/github/contributors/blocklistproject/lists)](https://github.com/blocklistproject/Lists/graphs/contributors)
-![GitHub repo size](https://img.shields.io/github/repo-size/blocklistproject/lists)
-![GitHub](https://img.shields.io/github/license/blocklistproject/lists?color=blue)
+[![GitHub issues](https://img.shields.io/github/issues/ralphschuler/dns-blocklists)](https://github.com/ralphschuler/dns-blocklists/issues)
+[![GitHub closed issues](https://badgen.net/github/closed-issues/ralphschuler/dns-blocklists?color=green)](https://github.com/ralphschuler/dns-blocklists/issues?q=is%3Aissue+is%3Aclosed)
+[![GitHub contributors](https://img.shields.io/github/contributors/ralphschuler/dns-blocklists)](https://github.com/ralphschuler/dns-blocklists/graphs/contributors)
+![GitHub repo size](https://img.shields.io/github/repo-size/ralphschuler/dns-blocklists)
+![GitHub](https://img.shields.io/github/license/ralphschuler/dns-blocklists?color=blue)
 ![GitHub Maintained](https://img.shields.io/badge/Open%20Source-Yes-green)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/y/blocklistproject/lists)
-![GitHub last commit](https://img.shields.io/github/last-commit/blocklistproject/lists)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/ralphschuler/dns-blocklists)
+![GitHub last commit](https://img.shields.io/github/last-commit/ralphschuler/dns-blocklists)
 ![GitHub Maintained](https://img.shields.io/badge/maintained-yes-green)
 [![ko-fi](https://badgen.net/badge/Support%20Us/Ko-Fi?color=orange)](https://ko-fi.com/P5P521OPP)
 [![patreon](https://badgen.net/badge/Support%20Us/Patreon?color=red)](https://www.patreon.com/bePatron?u=8892646)
@@ -195,8 +195,8 @@ We welcome contributions! Here's how you can help:
 
 ```bash
 # Clone the repository
-git clone https://github.com/blocklistproject/Lists.git
-cd Lists
+git clone https://github.com/ralphschuler/dns-blocklists.git
+cd dns-blocklists
 
 # Create virtual environment
 python -m venv .venv
