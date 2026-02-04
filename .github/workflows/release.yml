@@ -18,6 +18,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   release:
@@ -77,22 +79,37 @@ jobs:
           echo "## Statistics" >> changelog.md
           cat release-stats.txt >> changelog.md
 
-      - name: Create release archive
-        run: |
-          # Create archives for easy download
-          tar -czvf blocklists-all.tar.gz *.txt adguard/ alt-version/ dnsmasq-version/
-          zip -r blocklists-all.zip *.txt adguard/ alt-version/ dnsmasq-version/
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ steps.version.outputs.version }}
-          name: Block List Project ${{ steps.version.outputs.version }}
-          body_path: changelog.md
-          prerelease: ${{ github.event.inputs.prerelease || false }}
-          files: |
-            blocklists-all.tar.gz
-            blocklists-all.zip
-            release-stats.txt
+      - name: Add GitHub Pages paths
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOMAIN: https://${{ github.repository_owner }}.github.io
+          REPO: ${{ github.event.repository.name }}
+        run: |
+          PATH_SUFFIX="/$REPO/"
+          BASE_URL="$DOMAIN$PATH_SUFFIX"
+
+          {
+            echo ""
+            echo "## GitHub Pages"
+            echo "- Domain: $DOMAIN"
+            echo "- Path: $PATH_SUFFIX"
+            echo "- Base URL: $BASE_URL"
+          } >> changelog.md
+
+          {
+            echo "## Release URLs"
+            echo "Domain: $DOMAIN"
+            echo "Path: $PATH_SUFFIX"
+            echo "Base URL: $BASE_URL"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
